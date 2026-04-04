@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-primary: #a78bfa;
+  --color-secondary: #f472b6;
+  --color-background-dark: #0b0b0f;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-pink: #ec4899;
+
+  --radius-xl: 24px;
+}
+
+:root {
+  --bg-main: #0b0b0f;
+  --bg-card: #121218;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --primary: #a78bfa;
+  --primary-soft: #c4b5fd;
+  --primary-pink: #f472b6;
+  --primary-dark: #7c3aed;
+
+  --text-main: #ffffff;
+  --text-muted: #9ca3af;
+  --text-soft: #d1d5db;
+}
+
+/* Base Terminal Style */
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  transition: all 0.25s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+.display-font {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Premium Card Design (Stake UI Style) */
+.premium-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left,
+      rgba(139, 92, 246, 0.12),
+      transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+}
+
+.premium-card:hover::before {
+  opacity: 1;
+}
+
+/* Button Refinement */
+.button-primary {
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
+  border-radius: 9999px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 20px rgba(167, 139, 250, 0.2);
+}
+
+.button-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(167, 139, 250, 0.4), 0 0 20px rgba(244, 114, 182, 0.3);
+}
+
+.button-secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.female-gradient {
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.female-bg-gradient {
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Active State (Linear Style) */
+.sidebar-item-active {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border-left: 3px solid #8b5cf6 !important;
+  color: white !important;
+}
+
+/* Kinetic Utilities */
+.monos-num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Light Theme Overrides */
+.light {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --border: rgba(0, 0, 0, 0.06);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-soft: #334155;
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light .premium-card {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}

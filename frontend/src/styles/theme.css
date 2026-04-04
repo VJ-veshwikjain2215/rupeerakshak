@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #0A0A0A;
+  --text-color: #FFFFFF;
+}
+
+.light {
+  --bg-color: #FFFFFF;
+  --text-color: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s;
+}
+
+.glass-card {
+  transition: border-color 0.5s, background-color 0.5s;
+}
