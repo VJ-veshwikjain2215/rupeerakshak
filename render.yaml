@@ -6,7 +6,7 @@ services:
     dockerContext: ./ai-service
     dockerfilePath: ./ai-service/Dockerfile
     plan: free
-    region: singapore # Choose the region closest to you
+    region: singapore
     envVars:
       - key: PORT
         value: 8000
@@ -20,15 +20,13 @@ services:
     plan: free
     region: singapore
     envVars:
-      - key: SPRING_DATASOURCE_URL
-        sync: false # Set the full URL with ?sslmode=require in the Render Dashboard
-      - key: SPRING_DATASOURCE_DRIVER
-        value: org.postgresql.Driver
-      - key: SPRING_JPA_DIALECT
-        value: org.hibernate.dialect.PostgreSQLDialect
-      - key: SPRING_DATASOURCE_USERNAME
+      - key: PORT
+        value: 8080
+      - key: SUPABASE_DB_URL
         sync: false
-      - key: SPRING_DATASOURCE_PASSWORD
+      - key: SUPABASE_DB_USER
+        sync: false
+      - key: SUPABASE_DB_PASSWORD
         sync: false
       - key: GOOGLE_CLIENT_ID
         sync: false
@@ -37,6 +35,4 @@ services:
       - key: ARIMA_API_URL
         value: http://flowfund-ai-service:8000/forecast
       - key: FRONTEND_URL
-        value: https://rupeerakshak.vercel.app/ # Update this!
-      - key: PORT
-        value: 8085
+        value: https://rupeerakshak.vercel.app/
