@@ -21,7 +21,7 @@ services:
     region: singapore
     envVars:
       - key: SPRING_DATASOURCE_URL
-        sync: false # Set this in the Render dashboard
+        value: ${SUPABASE_DB_URL}?sslmode=require
       - key: SPRING_DATASOURCE_USERNAME
         sync: false
       - key: SPRING_DATASOURCE_PASSWORD
