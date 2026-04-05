@@ -66,10 +66,10 @@ CREATE TABLE buffers (
 
 CREATE TABLE buffer_forecast_series (
     buffer_id BIGINT NOT NULL REFERENCES buffers(id),
-    forecast_series DECIMAL(19, 2)
+    forecast_amount DECIMAL(19, 2)
 );
 
 CREATE TABLE buffer_insights (
     buffer_id BIGINT NOT NULL REFERENCES buffers(id),
-    insights VARCHAR(1000)
+    insight_text VARCHAR(1000)
 );

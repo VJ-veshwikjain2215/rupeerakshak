@@ -1,0 +1,41 @@
+services:
+  # 1. AI Service (FastAPI)
+  - type: web
+    name: flowfund-ai-service
+    runtime: docker
+    dockerContext: ./ai-service
+    dockerfilePath: ./ai-service/Dockerfile
+    plan: free
+    region: singapore # Choose the region closest to you
+    envVars:
+      - key: PORT
+        value: 8000
+
+  # 2. Backend Service (Spring Boot)
+  - type: web
+    name: flowfund-backend
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    region: singapore
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false # Set this in the Render dashboard
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: ARIMA_API_URL
+        fromService:
+          name: flowfund-ai-service
+          type: web
+          property: host
+      - key: FRONTEND_URL
+        value: https://your-vercel-app.vercel.app # Update this!
+      - key: PORT
+        value: 8085
