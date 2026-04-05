@@ -22,6 +22,10 @@ services:
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: ${SUPABASE_DB_URL}?sslmode=require
+      - key: SPRING_DATASOURCE_DRIVER
+        value: org.postgresql.Driver
+      - key: SPRING_JPA_DIALECT
+        value: org.hibernate.dialect.PostgreSQLDialect
       - key: SPRING_DATASOURCE_USERNAME
         sync: false
       - key: SPRING_DATASOURCE_PASSWORD
