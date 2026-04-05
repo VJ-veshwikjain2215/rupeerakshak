@@ -31,11 +31,8 @@ services:
       - key: GOOGLE_CLIENT_SECRET
         sync: false
       - key: ARIMA_API_URL
-        fromService:
-          name: flowfund-ai-service
-          type: web
-          property: host
+        value: http://flowfund-ai-service:8000/forecast
       - key: FRONTEND_URL
-        value: https://your-vercel-app.vercel.app # Update this!
+        value: https://rupeerakshak.vercel.app/ # Update this!
       - key: PORT
         value: 8085
