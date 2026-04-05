@@ -21,7 +21,7 @@ services:
     region: singapore
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: ${SUPABASE_DB_URL}?sslmode=require
+        sync: false # Set the full URL with ?sslmode=require in the Render Dashboard
       - key: SPRING_DATASOURCE_DRIVER
         value: org.postgresql.Driver
       - key: SPRING_JPA_DIALECT
